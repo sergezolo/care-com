@@ -1,0 +1,101 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+* {
+    font-family: 'Ubuntu', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: black;
+}
+
+.events-container {
+    margin: 1rem;
+}
+
+.event-container {
+    margin: 5rem;
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.event-card {
+    display: flex;
+    border: 1px solid rgb(194, 194, 194);
+    margin-bottom: 1rem;
+}
+
+.event-card-details {
+    width: 70%;
+    margin-left: 1rem;
+}
+
+.event-card-date {
+    text-align: center;
+}
+
+h4 {
+    color: gray;
+    margin-top: 2rem;
+}
+
+h5 {
+    margin-top: 2rem;
+}
+
+h1, h2, h3 {
+    margin-top: 1.5rem;
+}
+
+.event-details {
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.event-left {
+    width: 70%;
+}
+
+.event-right {
+    display: inline;
+    width: 30%;
+
+}
+
+.when {
+    display: flex;
+}
+
+.left {
+    width: 30%;
+    text-align: right;
+    padding-right: 1rem;
+}
+
+.right {
+    width: 70%;
+    text-align: left;
+}
+
+.right h4 {
+    margin-top: 0.5rem;
+}
+
+a {
+    text-decoration: none;
+}

@@ -1,0 +1,47 @@
+<div class="events-container">
+    <% @events.each do |event| %>
+        <%= link_to event_path(event["id"]) do %>  
+        <div class="event-card">
+            <div class="event-card-image">
+                <%= image_tag (event["photos"][0]["small_url"]), width: "300px", height:"100%" %>
+            </div>
+            <div class="event-card-details">
+                <h4><%= event["provider"]["name"] %></h4>
+                <h2><%= event["title"] %></h2>
+                <h4>
+                    <%= Time.parse(event["start_time_iso_string"]).strftime('%I:%M%p') %> - <%= Time.parse(event["end_time_iso_string"]).strftime('%I:%M%p') %> (<%= (event["end_time"] - event["start_time"]) / 60 %> min) for
+                    <% if event["for_kids"] = true %>
+                        <span><b>all ages</b></span>
+                    <% else %>
+                        <span><b>adults</b></span>
+                    <% end %>
+                </h4>
+                <h5>
+                    <% if event["online"] = true %>
+                        <span>Online event</span>
+                    <% else %>
+                        <span><%= event["activity_location"]["location"]["line1"]%>, <%= event["activity_location"]["location"]["city"]%>, <%= event["activity_location"]["location"]["state"]%>, <%= event["activity_location"]["location"]["postal"]%></span>
+                    <% end %>
+                </h5>
+            </div>
+            <div class="event-card-date">
+                <h1 style="margin-top: 3rem">
+                    <% if event["start_time_iso_string"] = event["end_time_iso_string"] %>
+                        <%= Time.parse(event["start_time_iso_string"]).strftime('%^b %d') %> 
+                    <% else %>
+                        <%= Time.parse(event["start_time_iso_string"]).strftime('%^b %d') %> - <%= Time.parse(event["end_time_iso_string"]).strftime('%^b %d') %>
+                    <% end %>
+                </h1>
+                <h3><%= Time.parse(event["start_time_iso_string"]).strftime('%A') %></h3>
+                <h3>
+                    <% if event["currency"] = "USD" %>
+                        <%="$"%><%= event["price"].split('.')[0] %> 
+                    <% else %>
+                        <%= event["currency"] %>
+                    <% end %>
+                </h3>
+            </div>
+        </div>
+        <% end %>
+    <% end %>
+</div>

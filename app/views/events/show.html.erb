@@ -1,0 +1,76 @@
+<div class="event-container">
+
+    <div>
+        <h1><%= @event["title"] %></h1>
+        <br>
+        <div class="event-details">
+            <div class="event-left">
+                <div class="when">
+                    <div class="left">
+                        <h3>When </h3>
+                    </div>
+                    <div class="right">
+                        <h3><%=Time.parse(@event["start_time_iso_string"]).strftime('%A, %B %d at %I:%M%p ')%></h3>
+                    </div>
+                </div>
+                <div class="when">
+                    <div class="left">
+                        <h3>Who</h3>
+                    </div>
+                    <div class="right">
+                        <h3><%= @event["provider"]["name"]%></h3>
+                        <h4>In busines since <%= @event["organizations"][0] ["in_business_since"]%></h4>
+                        <h4>Call us: <%= @event["organizations"][0]["phone"]%></h4>
+                        <h4>Email us: <%= @event["organizations"][0]["email"]%></h4>
+                    </div>
+                </div>
+                <div class="when">
+                    <div class="left">
+                        <h3>Where</h3>
+                    </div>
+                    <div class="right">
+                        <h3><span><%= @event["activity_location"]["location"]["line1"]%>,   <%= @event["activity_location"]["location"]["city"]%>, <%= @event ["activity_location"]["location"]["state"]%>, <%= @event ["activity_location"]["location"]["postal"]%></span></h3>
+                    </div>
+                </div>
+                <div class="when">
+                    <div class="left">
+                        <h3>Age</h3>
+                    </div>
+                    <div class="right">
+                        <h3>
+                            <% if @event["for_kids"] = true %>
+                                <span><b>All ages</b></span>
+                            <% else %>
+                                <span><b>Adults only</b></span>
+                            <% end %>
+                        </h3>
+                    </div>
+                </div>
+                <div class="when">
+                    <div class="left">
+                        <h3>Price</h3>
+                    </div>
+                    <div class="right">
+                        <h3>
+                            <% if @event["currency"] = "USD" %>
+                                <%="$"%><%= @event["price"].split('.')[0] %> 
+                            <% else %>
+                                <%= event["currency"] %>
+                            <% end %>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+            <div class="event-right">
+                <div class="event-image">
+                    <%= image_tag (@event["photos"][0]["small_url"]), width: "400px", height:"100%" %>
+                <div>
+            </div>
+        </div>
+        </div>
+</div>
+
+
+    <div style="float: center; margin: 5rem 0 2rem 5rem">
+    <%= link_to "Back", events_path %>
+    </div>
