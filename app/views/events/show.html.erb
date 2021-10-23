@@ -29,7 +29,11 @@
                         <h3>Where</h3>
                     </div>
                     <div class="right">
-                        <h3><span><%= @event["activity_location"]["location"]["line1"]%>,   <%= @event["activity_location"]["location"]["city"]%>, <%= @event ["activity_location"]["location"]["state"]%>, <%= @event ["activity_location"]["location"]["postal"]%></span></h3>
+                        <% if @event["activity_location"] = "null" %>
+                            <h3><span><%= @event["location_series"]["location"]["line1"]%>,   <%= @event["location_series"]["location"]["city"]%>, <%= @event ["location_series"]["location"]["state"]%>, <%= @event ["location_series"]["location"]["postal"]%></span></h3>
+                        <% else %>
+                            <h3><span><%= @event["activity_location"]["location"]["line1"]%>,   <%= @event["activity_location"]["location"]["city"]%>, <%= @event ["activity_location"]["location"]["state"]%>, <%= @event ["activity_location"]["location"]["postal"]%></span></h3>  
+                        <% end %>                          
                     </div>
                 </div>
                 <div class="when">
