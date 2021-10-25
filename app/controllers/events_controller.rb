@@ -5,11 +5,10 @@ class EventsController < ApplicationController
     end
 
     def show 
-        @event = Event.find_event(params["id"])
         # binding.pry
+        @event = Event.find_event(params["id"])
     end
 
 end
 
 
-# DateTime.now.iso8601
