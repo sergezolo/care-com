@@ -1,4 +1,6 @@
-<div class="events-container">
+<%
+=begin%>
+ <div class="events-container">
     <% @events.each do |event| %>
         <%= link_to event_path(event["id"]) do %>  
         <div class="event-card">
@@ -44,4 +46,11 @@
         </div>
         <% end %>
     <% end %>
-</div>
+</div> 
+<%
+=end%>
+
+
+<% @events.each do |event| %>
+        <%= event.id %>  
+<% end %>
